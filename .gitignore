@@ -7,3 +7,7 @@ models
 
 __pycache__/
 *.pyc
+.pytest_cache/
+tests/test_storage/
+reports/*.png
+project_storage/reports/*.png

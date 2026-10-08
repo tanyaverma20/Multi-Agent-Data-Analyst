@@ -1,312 +1,262 @@
 # Multi-Agent AutoML Data Analyst (MCP + A2A + Gemini Powered)
 
-Automated Profiler → EDA → AutoML → Verifier → Notebook Synthesizer → Gemini Insights
+Automated Profiler → EDA → Feature Engineering → AutoML → Hyperparameter Tuning → Cross-Validation → Feature Selection → Feature Importance → Verifier → Notebook Synthesizer → Gemini Insights
 
-🚀 Live Demo (Render Deployment):
+🚀 Live Demo (Render Deployment):  
 https://multiagent-data-analyst.onrender.com/
 
-Track: Enterprise Agents
-
-Tech: Python, Streamlit, Gemini, MCP Tools, A2A Bus, Multi-Agent Architecture
-
-# Overview
-
-The Multi-Agent Data Analyst is a fully automated, end-to-end data analysis pipeline powered by multiple specialized agents working together.
-It uploads a dataset, analyzes it, builds ML models, verifies the results, generates notebooks, and produces final insights — without any manual coding.
-
-This project demonstrates:
-
-✔ Multi-agent systems
-
-✔ A2A (Agent-to-Agent) 
-
-✔ Tool-based agent execution (MCP Tools)
-
-✔ Sessions & memory
-
-✔ Context-aware notebook synthesis
-
-✔ Gemini-powered explanations
-
-✔ Streamlit multi-page application
-
-
-# Problem Statement
-
-Performing data analysis typically requires switching between tools, writing repetitive code, running models manually, validating outputs, and documenting everything.
-
-For beginners, this is overwhelming.
-
-For analysts, it's time-consuming.
-
-For teams, it’s inconsistent.
-
-# Goal: Build an agentic system that automates the entire workflow — from raw data to verified insights and notebook generation.
-
-# Why Agents?
-
-Agents make the system:
-
- -> Modular — each agent does one job
-
- -> Autonomous — actions happen without the user triggering each step
-
- -> Traceable — every step is observable
-
- -> Composable — agents communicate using A2A bus
-
- -> Extensible — new agents (e.g., Gemini Reviewer) can be added anytime
-
-Instead of one giant notebook, the intelligence is distributed:
-
-# Agent Roles
-
- -> Profiler Agent – inspects dataset, finds issues
-
- -> EDA Agent – generates charts, summaries, anomalies
-
- -> Model Agent (AutoML) – builds ML pipelines automatically
-
- -> Verifier Agent – detects inconsistencies, bad models, missing columns
-
- -> Notebook Synthesizer Agent – creates a clean notebook combining all outputs
-
- -> Gemini Agent – explains the ML results in human-friendly language
-
-# Each agent writes outputs to memory → A2A orchestrates → Next agent reacts.
-
-# Architecture
-
-<img width="2452" height="1286" alt="image" src="https://github.com/user-attachments/assets/92641b2f-fceb-493a-b481-345e5e341de4" />
-
-
-1️⃣ ProfilerAgent
-
-✔ Reads dataset
-
-✔ Detects column types
-
-✔ Finds missing values
-
-✔ Sends message → EDAAgent
-
-2️⃣ EDAAgent
-
-✔ Creates correlations, histograms, outlier analysis
-
-✔ Saves all plots via MCP FileTools
-
-✔ Sends message → ModelAgent
-
-3️⃣ ModelAgent
-
-✔ Auto-detects task type (classification/regression)
-
-✔ Builds full ML pipeline (imputation + scaling + encoding)
-
-✔ Tunes models
-
-✔ Saves best model
-
-✔ Sends message → VerifierAgent
-
-4️⃣ VerifierAgent
-
-✔ Validates model quality
-
-✔ Computes quality tag (“Good”, “Acceptable”, “Weak”)
-
-✔ Sends message → NotebookAgent
-
-5️⃣ NotebookSynthesizerAgent
-
-✔ Builds a full auto-generated Jupyter Notebook
-
-✔ Embeds all results and images
-
-✔ Saves notebook through FileTools
-
-6️⃣ Gemini Integration
-
-✔ Gemini generates:
-
-✔ Model explanations
-
-✔ Recommendations
-
-✔ Summaries
-
-Plain-English explanations for beginners
-
-7️⃣ Streamlit UI
-
-✔ Beautiful dashboard with:
-
-✔ Dataset Explorer
-
-✔ EDA Dashboard
-
-✔ AutoML Dashboard
-
-✔ Verifier & Notebook Builder
-
-✔ A2A Communications Console
-
-# Setup Instructions
-
-Clone Repo
-
- 1. git clone https://github.com/yourusername/multiagent-data-analyst
- 
- 2. cd multiagent-data-analyst
-
- 3. pip install -r requirements.txt
-
- 4. Add Gemini API Key
-
- 5. Create .env:
-
- 6. Run Streamlit -> streamlit run streamlit_app/app.py
-
-# Demo (Screenshots)
-
-# Dataset Upload
-
-<img width="2928" height="1746" alt="image" src="https://github.com/user-attachments/assets/6e6dddb5-a33b-47be-a2f0-44a6f26a06ec" />
-
-# EDA Dashboard
-
-<img width="2938" height="1760" alt="image" src="https://github.com/user-attachments/assets/ffc64ed4-f32c-49af-ae7d-b5b1de07770c" />
-
-<img width="2284" height="1518" alt="image" src="https://github.com/user-attachments/assets/ecaa796b-8470-4cdc-89f1-a9ee5437e221" />
-
-<img width="2260" height="936" alt="image" src="https://github.com/user-attachments/assets/68182f66-62b3-4dbd-b6aa-e57ba8bb532c" />
-
-# AutoML Results
-
-<img width="2894" height="1566" alt="image" src="https://github.com/user-attachments/assets/214fd60b-055d-4143-bee5-7283aca09528" />
-
-<img width="2940" height="1584" alt="image" src="https://github.com/user-attachments/assets/a27fe305-5c8c-4799-b049-fce96a0a1326" />
-
-# Gemini Explanation
-
-<img width="2326" height="1528" alt="image" src="https://github.com/user-attachments/assets/2f79d85b-d176-4b21-8a45-0c70d5e0e845" />
-
-# A2A Console
-
-<img width="2940" height="1774" alt="image" src="https://github.com/user-attachments/assets/9a0250a0-2415-432f-a3a0-b2c05aea8a7e" />
-
-# Notebook generated
-
-<img width="2354" height="1500" alt="image" src="https://github.com/user-attachments/assets/7d5ab7c6-97e1-436e-885d-798fb015f72f" />
-
-# Profiler Agent Output - 
-
-<img width="2940" height="1528" alt="image" src="https://github.com/user-attachments/assets/228e3f40-883a-41a4-abb9-58597050d94d" />
-
-<img width="2898" height="1560" alt="image" src="https://github.com/user-attachments/assets/3dc7df6d-6486-4019-87c3-c837a85398db" />
-
-# Verifier Agent - 
-
-<img width="2310" height="1342" alt="image" src="https://github.com/user-attachments/assets/21e769b2-bd25-45ef-a54c-c274eaa28262" />
-
-
-# Tools & Technologies Used
-
-🚀Category	Tools
-
-🚀Multi-Agent	Custom Agents, A2A Bus
-
-🚀LLM	Gemini 1.5 Flash
-
-🚀UI	Streamlit
-
-🚀ML	Scikit-Learn
-
-🚀Storage	Custom MemoryTools
-
-🚀Notebook	nbformat
-
-🚀Deployment	Render
-
-🚀Visualization	Plotly, Matplotlib, Seaborn
-
-🚀 LLM	Gemini 1.5 Flash
-
-
-# 🗂 Project Structure
-
-# multiagent-data-analyst/
-
-│
-
-├── src/
-
-│   ├── agents/
-
-│   ├── core/
-
-│   ├── tools/
-
-│   │   ├── file_tools.py
-
-│   │   ├── dataset_tools.py
-
-│   │   ├── memory_tools.py
-
-│   │   ├── model_tools.py
-
-│   │   └── notebook_tools.py
-
-│
-
-├── streamlit_app/
-
-│   ├── app.py
-
-│   └── pages/
-
-│       ├── AutoML.py
-
-│       ├── Profiler.py
-
-│       ├── EDA_Dashboard.py
-
-│       ├── Notebook_Report.py
-
-│       ├── Verifier.py
-
-│       └── A2A_Dashboard.py
-
-│
-
-├── streamlit_app_storage/
-
-│   ├── memory/
-
-│   ├── uploads/
-
-│   └── reports/
-
-│
-
-└── README.md
-
- # Future Improvements
-
-1. Add RAG-based “Data Question Answering Agent”
-
-2. Add deployment on Google Cloud Run using Docker
-
-3. Add Evaluation Agent for model fairness
-
-4. Provide more AutoML models (XGBoost, LightGBM)
-
-5. Add voice-based interaction mode
-
-# Credits
-
-Built by Vaishnavi Sharma as part of
-Google x Kaggle – Agents Intensive 
-
-# If you find this useful, ⭐ star the repo!
+Track: Enterprise Agents  
+Tech: Python, FastAPI, Uvicorn, Streamlit, Scikit-Learn, Gemini, MCP Tools, A2A Bus, Multi-Agent Architecture  
+
+---
+
+## 📌 Overview
+
+The **Multi-Agent Data Analyst** is a production-grade, end-to-end data analysis, machine learning, and inference system powered by collaborative autonomous agents and REST API services.
+It profiles schemas, performs exploratory analysis, applies feature engineering and outlier clipping, conducts hyperparameter tuning over cross-validation across multiple model families, selects the optimal candidate, explains the model with Gemini AI, generates Jupyter notebook reports, and serves predictions via FastAPI.
+
+Key Highlights:
+- ✔ **Multi-Agent Systems**: Modular autonomous agents collaborating asynchronously over an in-memory & persistent A2A Bus.
+- ✔ **Hyperparameter Tuning**: Systematic parameter exploration via `GridSearchCV` and `RandomizedSearchCV` across task-specific grids.
+- ✔ **Zero Data Leakage**: All learned preprocessing, outlier clipping, feature selection, and hyperparameter tuning steps are fitted strictly on training folds.
+- ✔ **FastAPI REST API**: Production API with `/health`, `/predict`, `/train`, and `/model-info` endpoints.
+- ✔ **Reusable Feature Engineering**: Categorical encoding, numeric scaling, log/power transforms, and interaction creation with mathematical safeguards.
+- ✔ **Automated Outlier Detection & Handling**: IQR-based outlier boundaries with safe winsorization/clipping.
+- ✔ **Automated Feature Selection**: Adaptive statistical tests and model-based selection for classification & regression.
+- ✔ **K-Fold Cross-Validation**: StratifiedKFold for classification and KFold for regression with fold scores and standard deviation tracking.
+- ✔ **Feature Importance Analysis**: Accurate name mapping through all transformers with tree-based, linear magnitude/direction, and permutation importance.
+- ✔ **MCP Tool-Based Execution**: Model Context Protocol tools for files, datasets, features, models, memory, and notebooks.
+- ✔ **Gemini Integration**: LLM-generated explanations for non-technical stakeholders and engineers.
+- ✔ **Interactive Streamlit UI**: Multi-page dashboard with real-time analytics, Plotly charts, and agent consoles.
+
+---
+
+## 🏗 System Architecture
+
+```text
+       FastAPI REST API
+              ↓
+    ML Inference / Training
+              ↓
+          Profiler
+              ↓
+             EDA
+              ↓
+     Feature Engineering
+              ↓
+            AutoML
+              ↓
+     Hyperparameter Tuning
+              ↓
+        Cross-Validation
+              ↓
+       Feature Selection
+              ↓
+      Feature Importance
+              ↓
+           Verifier
+              ↓
+      Notebook Synthesizer
+              ↓
+            Gemini
+
+       MCP Tools  ↕  A2A Communication Bus
+```
+
+### Agent Roles
+
+1. **Profiler Agent** (`src/agents/profiler_agent.py`): Inspects column types, row counts, null values, and publishes `profiler.completed`.
+2. **EDA Agent** (`src/agents/eda_agent.py`): Computes descriptive stats, correlations (Pearson, Spearman, Kendall), VIF, skewness, kurtosis, generates plots via MCP, and publishes `eda.completed`.
+3. **Model Agent** (`src/agents/model_agent.py`): Coordinates the complete AutoML process, runs hyperparameter tuning across candidate model families, selects the winning model, and emits A2A lifecycle events (`feature_engineering.started`, `feature_engineering.completed`, `hyperparameter_tuning.started`, `hyperparameter_tuning.completed`, `cross_validation.completed`, `feature_selection.completed`, `feature_importance.completed`, and `model.trained`).
+4. **Verifier Agent** (`src/agents/verifier_agent.py`): Audits model quality ("Good", "Acceptable", "Weak"), verifies cross-validation stability, outlier clipping, and optimal hyperparameter selection.
+5. **Notebook Synthesizer Agent** (`src/agents/notebook_synthesizer_agent.py`): Assembles markdown & code cells containing profiling, EDA summaries, feature engineering metrics, cross-validation tables, hyperparameter configurations, and feature importance rankings into a downloadable `.ipynb` file.
+6. **Gemini Agent**: Synthesizes human-friendly explanations and recommendations from structured JSON outputs.
+
+---
+
+## ⚙️ Hyperparameter Tuning
+
+The AutoML system performs systematic hyperparameter search across model families:
+
+1. **Search Approaches Supported**:
+   - `GridSearchCV`: Exhaustive evaluation over the defined parameter grid.
+   - `RandomizedSearchCV`: Randomized exploration over candidate spaces for larger parameter combinations.
+2. **Task-Specific Hyperparameter Grids**:
+   - **Random Forest** (Classifier & Regressor): `n_estimators`, `max_depth`, `min_samples_split`, `min_samples_leaf`.
+   - **Logistic Regression**: `C`, `solver`.
+   - **Gradient Boosting**: `n_estimators`, `learning_rate`, `max_depth`, `min_samples_split`.
+   - **Ridge Regression**: `alpha`.
+   - **Support Vector Regressor (SVR)**: `C`, `epsilon`, `kernel`.
+3. **Cross-Validation Integration**:
+   - Reuses StratifiedKFold (classification) and KFold (regression) over training folds.
+   - Computes mean CV score, standard deviation, and fold-level scores for each candidate parameter combination.
+4. **Zero Data Leakage**:
+   - Tuning is executed exclusively on `X_train_selected` (derived from `X_train`). The held-out `X_test` is NEVER touched during parameter search.
+   - The winning model is fitted on full `X_train` and evaluated once on `X_test`.
+
+---
+
+## 🌐 FastAPI REST API
+
+The application includes a FastAPI backend (`src/api/main.py`) with Pydantic request/response schemas:
+
+### Endpoints
+
+| Method | Endpoint | Description | Request Body | Response |
+|---|---|---|---|---|
+| `GET` | `/health` | Service health & liveness probe | None | `{"status": "healthy", "service": "..."}` |
+| `POST` | `/predict` | Model inference on raw feature data | `{"data": {...}}` or `{"data": [{...}]}` | `{"status": "success", "predictions": [...], "model_name": "...", "task_type": "..."}` |
+| `POST` | `/train` | Trigger AutoML training & tuning | `{"target_col": "...", "data": [...], "cv_folds": 5, "tune_hyperparameters": true}` | `{"status": "success", "best_model": "...", "best_cv_score": ..., "test_metrics": {...}}` |
+| `GET` | `/model-info` | Active model metadata, metrics, & tuning info | None | Detailed model architecture, selected features, CV score, test metrics, and tuning parameters |
+
+#### Example: Prediction Request
+```bash
+curl -X POST "http://localhost:8000/predict" \
+     -H "Content-Type: application/json" \
+     -d '{"data": {"age": 35, "income": 65000, "employment_type": "employed"}}'
+```
+*Note: Raw features are passed directly. The pipeline's internal transformers handle imputation, scaling, one-hot encoding, outlier clipping, and feature creation automatically.*
+
+---
+
+## 📊 Structured Result Data Contract
+
+```json
+{
+  "status": "success",
+  "task_type": "classification",
+  "model_name": "rf",
+  "best_model": "rf",
+  "model_path": "models/rf_model.pkl",
+  "feature_engineering": {
+    "created_features": ["ratio_income_over_loan_amount", "diff_income_minus_loan_amount"],
+    "transformed_features": ["log1p_income"],
+    "numeric_features": ["age", "income", "credit_score", "loan_amount"],
+    "categorical_features": ["employment_type"],
+    "transformations_applied": [
+      "IQR Outlier Clipping",
+      "Log1p Skew Transform",
+      "Pairwise Ratios & Differences",
+      "Standard Scaling (Numeric)",
+      "One-Hot Encoding (Categorical)",
+      "Automated Feature Selection (k_best)"
+    ]
+  },
+  "outliers": {
+    "method": "iqr",
+    "affected_columns": {
+      "income": {"outlier_count": 2, "percentage": 5.0, "lower_bound": 12000.0, "upper_bound": 135000.0}
+    },
+    "total_outliers": 2,
+    "percentage_affected": 5.0,
+    "handling_strategy": "clip"
+  },
+  "feature_selection": {
+    "method": "k_best",
+    "original_count": 14,
+    "selected_count": 10,
+    "selected_features": ["income", "credit_score", "ratio_income_over_loan_amount"],
+    "feature_scores": {"credit_score": 14.52}
+  },
+  "hyperparameter_tuning": {
+    "enabled": true,
+    "method": "GridSearchCV",
+    "cv_folds": 5,
+    "models": {
+      "rf": {
+        "best_params": {"max_depth": 10, "min_samples_split": 2, "n_estimators": 100},
+        "best_cv_score": 0.885,
+        "cv_std": 0.021,
+        "candidates_evaluated": 12,
+        "search_duration_sec": 0.45
+      }
+    },
+    "best_tuned_model": "rf",
+    "best_overall_params": {"max_depth": 10, "min_samples_split": 2, "n_estimators": 100}
+  },
+  "cross_validation": {
+    "folds": 5,
+    "cv_metric": "f1_score",
+    "models": {
+      "rf": {
+        "mean_cv_score": 0.885,
+        "std_cv_score": 0.021,
+        "fold_scores": [0.85, 0.90, 0.87, 0.89, 0.91]
+      }
+    }
+  },
+  "feature_importance": [
+    {"rank": 1, "feature": "credit_score", "importance": 0.38, "direction": "N/A"},
+    {"rank": 2, "feature": "ratio_income_over_loan_amount", "importance": 0.24, "direction": "N/A"}
+  ],
+  "metrics": {"accuracy": 0.88, "f1_score": 0.88},
+  "test_metrics": {"accuracy": 0.88, "f1_score": 0.88, "precision": 0.89, "recall": 0.88},
+  "sample_predictions": [0, 1, 0, 0, 1]
+}
+```
+
+---
+
+## 🛠 MCP Tools Available
+
+The project exposes tools adhering to the Model Context Protocol (see `mcp/manifest.json`):
+- `model.tune`: Run hyperparameter tuning with cross-validation across candidate models.
+- `model.cross_validate`: Run stratified or standard cross-validation.
+- `model.load`, `model.predict`: Model loading and inference.
+- `model.feature_importance`: Analyze and rank feature importances.
+- `feature.engineer`: Run automated feature creation and transformations.
+- `feature.outliers`: Detect numerical outliers and calculate clipping bounds.
+- `feature.select`: Select informative features for regression and classification targets.
+- `dataset.describe`, `dataset.missing`: Dataset profiling tools.
+- `file.read`, `file.write`, `file.list`: Project storage management.
+- `notebook.create`: Automated Jupyter Notebook report synthesis.
+- `memory.read`, `memory.write`: Shared state storage.
+
+---
+
+## 💻 Installation & Usage
+
+### 1. Setup Environment
+```bash
+git clone https://github.com/yourusername/multiagent-data-analyst.git
+cd multiagent-data-analyst
+pip install -r requirements.txt
+```
+
+### 2. Configure API Keys (Optional for Gemini Insights)
+Create a `.env` file in the project root:
+```env
+GEMINI_API_KEY=your_gemini_api_key_here
+```
+
+### 3. Run the FastAPI Server
+```bash
+uvicorn src.api.main:app --reload --host 0.0.0.0 --port 8000
+```
+Interactive Swagger API documentation: `http://localhost:8000/docs`
+
+### 4. Run the Streamlit Dashboard
+```bash
+streamlit run streamlit_app/app.py
+```
+
+### 5. Run the Multi-Agent Pipeline via Orchestrator
+```bash
+python src/orchestrator.py
+```
+
+### 6. Run the Test Suite
+```bash
+pytest tests/ -v
+```
+
+---
+
+## 🧪 Testing Coverage
+
+The test suite in `tests/` contains **32 automated tests**:
+- **API Tests** (`tests/test_api.py`): `/health`, `/model-info`, `/predict` (single and batch records), invalid input error handling (HTTP 400), `/train` inline training.
+- **Hyperparameter Tuning Tests** (`tests/test_hyperparameter_tuning.py`): Classification tuning, regression tuning, RandomizedSearchCV, zero data leakage checks, A2A tuning lifecycle events, MCP `model.tune` method.
+- **AutoML Pipeline Tests** (`tests/test_automl_pipeline.py`): End-to-end classification, regression, missing value imputation, unseen categorical levels, extreme outliers, constant columns, small datasets, feature importance name mapping.
+- **Feature Engineering Tests** (`tests/test_feature_engineering.py`): IQR outlier detection and clipping, data leakage safeguards, pairwise ratios & differences, division-by-zero safeguards, automated feature selection.
+- **Agent Integration Tests** (`tests/test_agents_integration.py`): ToolRegistry, ModelAgent A2A lifecycle events, VerifierAgent quality checks, NotebookSynthesizerAgent report compilation.

@@ -9,8 +9,15 @@
     { "name": "dataset.describe", "description": "Describe a dataset" },
     { "name": "dataset.missing", "description": "Compute missing values" },
 
+    { "name": "feature.engineer", "description": "Run automated feature creation and engineering" },
+    { "name": "feature.outliers", "description": "Detect numerical outliers and calculate bounds" },
+    { "name": "feature.select", "description": "Automated feature selection for classification and regression" },
+
     { "name": "model.load", "description": "Load trained model" },
     { "name": "model.predict", "description": "Run prediction" },
+    { "name": "model.cross_validate", "description": "Run stratified or standard cross-validation" },
+    { "name": "model.tune", "description": "Run hyperparameter tuning with cross-validation across candidate models" },
+    { "name": "model.feature_importance", "description": "Analyze feature importances with readable names" },
 
     { "name": "notebook.create", "description": "Create Jupyter notebook" },
     { "name": "notebook.append", "description": "Append notebook cell" },

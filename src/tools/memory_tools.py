@@ -1,9 +1,11 @@
+# src/tools/memory_tools.py
 import os
 import json
 
 class MemoryTools:
     """
     Simple JSON-based key-value storage for agent memory.
+    Supports both load(key) and load() for full snapshot compatibility.
     """
 
     def __init__(self, storage_dir="streamlit_app_storage/memory"):
@@ -20,7 +22,7 @@ class MemoryTools:
             try:
                 with open(self.storage_file, "r") as f:
                     json.load(f)
-            except:
+            except Exception:
                 with open(self.storage_file, "w") as f:
                     json.dump({}, f)
 
@@ -43,12 +45,15 @@ class MemoryTools:
             return {"status": "error", "error": str(e)}
 
     # ---------------------------------------------------------
-    # LOAD SPECIFIC KEY
+    # LOAD SPECIFIC KEY OR ALL
     # ---------------------------------------------------------
-    def load(self, key):
+    def load(self, key=None):
         try:
             with open(self.storage_file, "r") as f:
                 data = json.load(f)
+
+            if key is None:
+                return {"status": "success", "memory": data}
 
             return data.get(key, None)
 

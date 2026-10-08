@@ -1,0 +1,261 @@
+{
+  "status": "success",
+  "rows": 40,
+  "cols": 6,
+  "describe": {
+    "age": {
+      "count": 40.0,
+      "unique": "",
+      "top": "",
+      "freq": "",
+      "mean": 39.0,
+      "std": 13.34742844722706,
+      "min": 18.0,
+      "25%": 27.75,
+      "50%": 37.5,
+      "75%": 48.5,
+      "max": 64.0
+    },
+    "income": {
+      "count": 40.0,
+      "unique": "",
+      "top": "",
+      "freq": "",
+      "mean": 70000.0,
+      "std": 29892.97147474208,
+      "min": 15000.0,
+      "25%": 47250.0,
+      "50%": 73000.0,
+      "75%": 94250.0,
+      "max": 120000.0
+    },
+    "credit_score": {
+      "count": 40.0,
+      "unique": "",
+      "top": "",
+      "freq": "",
+      "mean": 677.875,
+      "std": 77.78905977393492,
+      "min": 500.0,
+      "25%": 632.5,
+      "50%": 697.5,
+      "75%": 736.25,
+      "max": 790.0
+    },
+    "loan_amount": {
+      "count": 40.0,
+      "unique": "",
+      "top": "",
+      "freq": "",
+      "mean": 23937.5,
+      "std": 11440.026167712585,
+      "min": 7000.0,
+      "25%": 15750.0,
+      "50%": 22500.0,
+      "75%": 32250.0,
+      "max": 50000.0
+    },
+    "employment_type": {
+      "count": 40,
+      "unique": 4,
+      "top": "employed",
+      "freq": 22,
+      "mean": "",
+      "std": "",
+      "min": "",
+      "25%": "",
+      "50%": "",
+      "75%": "",
+      "max": ""
+    },
+    "default": {
+      "count": 40.0,
+      "unique": "",
+      "top": "",
+      "freq": "",
+      "mean": 0.25,
+      "std": 0.4385290096535146,
+      "min": 0.0,
+      "25%": 0.0,
+      "50%": 0.0,
+      "75%": 0.25,
+      "max": 1.0
+    }
+  },
+  "numeric_columns": [
+    "age",
+    "income",
+    "credit_score",
+    "loan_amount",
+    "default"
+  ],
+  "categorical_columns": [
+    "employment_type"
+  ],
+  "histograms": [
+    "reports\\hist_age.png",
+    "reports\\hist_income.png",
+    "reports\\hist_credit_score.png",
+    "reports\\hist_loan_amount.png",
+    "reports\\hist_default.png"
+  ],
+  "boxplots": [
+    "reports\\box_age.png",
+    "reports\\box_income.png",
+    "reports\\box_credit_score.png",
+    "reports\\box_loan_amount.png",
+    "reports\\box_default.png"
+  ],
+  "missing_path": "reports\\missing_heatmap.png",
+  "correlations": {
+    "pearson": {
+      "age": {
+        "age": 1.0,
+        "income": 0.8864,
+        "credit_score": 0.8432,
+        "loan_amount": 0.8132,
+        "default": -0.6659
+      },
+      "income": {
+        "age": 0.8864,
+        "income": 1.0,
+        "credit_score": 0.9607,
+        "loan_amount": 0.9699,
+        "default": -0.7765
+      },
+      "credit_score": {
+        "age": 0.8432,
+        "income": 0.9607,
+        "credit_score": 1.0,
+        "loan_amount": 0.9051,
+        "default": -0.871
+      },
+      "loan_amount": {
+        "age": 0.8132,
+        "income": 0.9699,
+        "credit_score": 0.9051,
+        "loan_amount": 1.0,
+        "default": -0.6715
+      },
+      "default": {
+        "age": -0.6659,
+        "income": -0.7765,
+        "credit_score": -0.871,
+        "loan_amount": -0.6715,
+        "default": 1.0
+      }
+    },
+    "spearman": {
+      "age": {
+        "age": 1.0,
+        "income": 0.907,
+        "credit_score": 0.8901,
+        "loan_amount": 0.8961,
+        "default": -0.7078
+      },
+      "income": {
+        "age": 0.907,
+        "income": 1.0,
+        "credit_score": 0.9757,
+        "loan_amount": 0.9924,
+        "default": -0.7352
+      },
+      "credit_score": {
+        "age": 0.8901,
+        "income": 0.9757,
+        "credit_score": 1.0,
+        "loan_amount": 0.9628,
+        "default": -0.7503
+      },
+      "loan_amount": {
+        "age": 0.8961,
+        "income": 0.9924,
+        "credit_score": 0.9628,
+        "loan_amount": 1.0,
+        "default": -0.7128
+      },
+      "default": {
+        "age": -0.7078,
+        "income": -0.7352,
+        "credit_score": -0.7503,
+        "loan_amount": -0.7128,
+        "default": 1.0
+      }
+    },
+    "kendall": {
+      "age": {
+        "age": 1.0,
+        "income": 0.7505,
+        "credit_score": 0.7095,
+        "loan_amount": 0.7291,
+        "default": -0.5854
+      },
+      "income": {
+        "age": 0.7505,
+        "income": 1.0,
+        "credit_score": 0.885,
+        "loan_amount": 0.948,
+        "default": -0.6078
+      },
+      "credit_score": {
+        "age": 0.7095,
+        "income": 0.885,
+        "credit_score": 1.0,
+        "loan_amount": 0.8535,
+        "default": -0.6214
+      },
+      "loan_amount": {
+        "age": 0.7291,
+        "income": 0.948,
+        "credit_score": 0.8535,
+        "loan_amount": 1.0,
+        "default": -0.5895
+      },
+      "default": {
+        "age": -0.5854,
+        "income": -0.6078,
+        "credit_score": -0.6214,
+        "loan_amount": -0.5895,
+        "default": 1.0
+      }
+    }
+  },
+  "corr_image_paths": {
+    "pearson": "reports\\corr_pearson.png",
+    "spearman": "reports\\corr_spearman.png",
+    "kendall": "reports\\corr_kendall.png"
+  },
+  "outlier_counts": {
+    "age": 0,
+    "income": 0,
+    "credit_score": 0,
+    "loan_amount": 0,
+    "default": 10
+  },
+  "skew_kurtosis": {
+    "age": {
+      "skewness": 0.2755,
+      "kurtosis": -1.0283
+    },
+    "income": {
+      "skewness": -0.2302,
+      "kurtosis": -1.1174
+    },
+    "credit_score": {
+      "skewness": -0.7293,
+      "kurtosis": -0.4791
+    },
+    "loan_amount": {
+      "skewness": 0.4135,
+      "kurtosis": -0.6936
+    },
+    "default": {
+      "skewness": 1.2002,
+      "kurtosis": -0.5917
+    }
+  },
+  "vif": {
+    "status": "skipped",
+    "reason": "statsmodels_not_available_or_too_few_columns"
+  }
+}

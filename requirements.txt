@@ -10,3 +10,5 @@ nbformat
 jsonschema
 python-dotenv
 joblib
+fastapi
+uvicorn

@@ -5,11 +5,13 @@ import pandas as pd
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC_DIR = os.path.join(BASE_DIR, "src")
-sys.path.append(SRC_DIR)
+if SRC_DIR not in sys.path:
+    sys.path.append(SRC_DIR)
 
 from tools.file_tools import FileTools
 from tools.dataset_tools import DatasetTools
 from tools.memory_tools import MemoryTools
+from tools.feature_tools import FeatureTools
 
 
 st.title("🤖 Multi-Agent Data Analyst")
@@ -30,6 +32,10 @@ if uploaded:
 
     # Save to memory using MCP
     MemoryTools().save("file_uploaded", {"rows": len(df), "cols": list(df.columns)})
+elif "uploaded_df" not in st.session_state:
+    sample_path = os.path.join(BASE_DIR, "sample.csv")
+    if os.path.exists(sample_path):
+        st.session_state["uploaded_df"] = pd.read_csv(sample_path)
 
 
 # --------------------------------------------------------
@@ -37,7 +43,7 @@ if uploaded:
 # --------------------------------------------------------
 st.header("🛠 MCP Tools Panel")
 
-col1, col2, col3 = st.columns(3)
+col1, col2, col3, col4 = st.columns(4)
 
 # ------------------- FILE TOOLS -------------------
 with col1:
@@ -81,3 +87,21 @@ with col3:
 
     if st.button("Show stored memory"):
         st.json(mem.load_all())
+
+
+# ------------------- FEATURE TOOLS -------------------
+with col4:
+    st.subheader("⚙️ FeatureTools")
+
+    feat = FeatureTools()
+
+    if st.button("Detect Outliers (MCP)"):
+        df = st.session_state.get("uploaded_df")
+        if df is not None:
+            st.json(feat.detect_outliers(df))
+
+    if st.button("Engineer Features (MCP)"):
+        df = st.session_state.get("uploaded_df")
+        if df is not None:
+            target_col = df.columns[-1]
+            st.json(feat.engineer_features(df, target_col=target_col))
